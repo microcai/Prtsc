@@ -49,4 +49,7 @@
 
 #endif
 
+
+#include <gtk/gtk.h>
+
 #endif /* PRTSC_H_ */

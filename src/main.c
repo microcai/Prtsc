@@ -26,10 +26,19 @@
 
 int main(int argc, char * argv[])
 {
+	GtkStatusIcon * main_icon;
+
+
 	gtk_init(&argc, &argv);
 	setlocale(LC_ALL, "");
 	gtk_set_locale();
 	textdomain(GETTEXT_PACKAGE);
+
+	//主程序其实就是为了显示个图标，吼吼
+
+	main_icon = gtk_status_icon_new_from_file("/usr/share/icons/hicolor/scalable/apps/Prtsc.svg");
+	gtk_status_icon_get_visible(main_icon,TRUE);
+
 
 	return 0;
 }
