@@ -24,7 +24,7 @@
 
 #include "Prtsc.h"
 
-void getsavefilename( GString * filename )
+void getsavefilename( GString ** filename )
 {
 	GtkFileChooserDialog * cd;
 	char * file ;
@@ -38,12 +38,12 @@ void getsavefilename( GString * filename )
 
 	file = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(cd));
 
-	filename = g_string_assign(filename,file);
+	*filename  = g_string_assign(*filename,file);
 
 	g_free (file);
 
-	if (strncasecmp(filename->str + filename->len - 3, "png"))
-		filename = g_string_append(filename, ".png");
+	if (strncasecmp((*filename)->str + (*filename)->len - 3, "png"))
+		*filename = g_string_append(*filename, ".png");
 
 	gtk_widget_destroy(GTK_WIDGET(cd));
 

@@ -55,7 +55,7 @@ void cutscreen(GtkWidget *w, gpointer   data)
 
 	GString * file = g_string_new("");
 
-	getsavefilename(file);
+	getsavefilename(&file);
 
 //	gdk_pixbuf_save(pixbuf,"CUT.bmp","bmp",&err,NULL);
 	gdk_pixbuf_save(pixbuf,file->str,"png",&err,NULL);
@@ -101,7 +101,7 @@ void cutactive(GtkWidget *w, gpointer   data)
 
 	GString * file = g_string_new("");
 
-	getsavefilename(file);
+	getsavefilename(&file);
 
 //	gdk_pixbuf_save(pixbuf,"CUT.bmp","bmp",&err,NULL);
 	gdk_pixbuf_save(pixbuf,file->str,"png",&err,NULL);

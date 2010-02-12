@@ -56,6 +56,6 @@
 
 void cutscreen(GtkWidget *w, gpointer   data);
 void cutactive(GtkWidget *w, gpointer   data);
-void getsavefilename( GString * filename );
+void getsavefilename( GString ** filename );
 
 #endif /* PRTSC_H_ */
