@@ -1,8 +1,6 @@
 
 
-icons_DATA = \
-	Prtsc.svg \
-	$(NULL)
+icons_DATA = Prtsc.svg
 
 iconsdir = /usr/share/icons/hicolor/scalable/apps/
 

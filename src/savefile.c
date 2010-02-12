@@ -19,43 +19,32 @@
  */
 
 /*
- * Prtsc.h - massive header file
+ * savefile.c - let user choose the file to save
  */
 
-#ifndef PRTSC_H_
-#define PRTSC_H_
+#include "Prtsc.h"
 
-#include "config.h"
+void getsavefilename( GString * filename )
+{
+	GtkFileChooserDialog * cd;
+	char * file ;
+	cd = GTK_FILE_CHOOSER_DIALOG(gtk_file_chooser_dialog_new(_("Kiki,my wife, save it!"),NULL,GTK_FILE_CHOOSER_ACTION_SAVE,
+			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+			GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,NULL));
 
-#ifdef ENABLE_NLS
-#  include <locale.h>
-#  include <libintl.h>
-#  define _(x) dgettext(GETTEXT_PACKAGE, x)
-#  ifdef gettext_noop
-#    define N_(String) gettext_noop (String)
-#  else
-#    define N_(String) (String)
-#  endif
-#else
-#  include <locale.h>
-#  define N_(String) (String)
-#  define _(x) (x)
-#  define ngettext(Singular, Plural, Number) ((Number == 1) ? (Singular) : (Plural))
-#endif
+	gtk_file_chooser_set_do_overwrite_confirmation(GTK_FILE_CHOOSER(cd),TRUE);
 
-#ifdef DEBUG
-#define textdomain(domian) \
-	do { textdomain(domian) ; \
-		bindtextdomain(domian, "./usr/share/locale"); \
-	}while(0)
+	gtk_dialog_run(GTK_DIALOG(cd));
 
-#endif
+	file = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(cd));
 
+	filename = g_string_assign(filename,file);
 
-#include <gtk/gtk.h>
+	g_free (file);
 
-void cutscreen(GtkWidget *w, gpointer   data);
-void cutactive(GtkWidget *w, gpointer   data);
-void getsavefilename( GString * filename );
+	if (strncasecmp(filename->str + filename->len - 3, "png"))
+		filename = g_string_append(filename, ".png");
 
-#endif /* PRTSC_H_ */
+	gtk_widget_destroy(GTK_WIDGET(cd));
+
+}
