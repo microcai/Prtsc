@@ -25,8 +25,9 @@
 #include "Prtsc.h"
 #include <X11/Xlib.h>
 #include <gdk/gdkx.h>
-#include <librsvg/rsvg.h>
 #include "hotkeys.h"
+
+#include <../icons/Prtsc.svg.h>
 
 enum{
 	PRTSC_HOTKEY_CUTFULLSCREEN,
@@ -60,8 +61,6 @@ int main(int argc, char * argv[])
 
 	GdkPixbuf * icon_pixbuf;
 
-	RsvgHandle * rsvg;
-
 	GtkItemFactory * item_factory;
 
 	GError	* err;
@@ -75,13 +74,9 @@ int main(int argc, char * argv[])
 
 	//主程序其实就是为了显示个图标，吼吼
 
-	rsvg = rsvg_handle_new_from_file("/usr/share/icons/hicolor/scalable/apps/Prtsc.svg",&err);
-
-	icon_pixbuf = rsvg_handle_get_pixbuf(rsvg);
+	icon_pixbuf = gdk_pixbuf_new_from_inline(sizeof(prtsc_icon),prtsc_icon,FALSE,FALSE);
 
 	main_icon = gtk_status_icon_new_from_pixbuf(icon_pixbuf);
-
-	rsvg_handle_close(rsvg,&err);
 
 	gtk_status_icon_set_title(main_icon,PACKAGE_NAME);
 

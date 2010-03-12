@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.01\n"
 "Report-Msgid-Bugs-To: microcaicai@gmail.com \n"
-"POT-Creation-Date: 2010-02-11 00:59+0800\n"
+"POT-Creation-Date: 2010-03-12 16:55+0800\n"
 "PO-Revision-Date: 2010-02-11 00:59+0800\n"
 "Last-Translator: microcai <microcai@fedoraproject.org>\n"
 "Language-Team: zh_CN <microcai@fedoraproject.org>\n"
@@ -15,18 +15,18 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: UTF-8\n"
 
-#: src/main.c:74
+#: src/main.c:75
 msgid "Prtsc start up\n"
 msgstr "小菜截屏启动\n"
 
-#: src/main.c:91
+#: src/main.c:90
 msgid "/CutScreen"
 msgstr "/截全屏"
 
-#: src/main.c:92
+#: src/main.c:91
 msgid "/CutActive"
 msgstr "/截活动窗口"
 
-#: src/savefile.c:30
+#: src/savefile.c:31
 msgid "Kiki,my wife, save it!"
 msgstr "我的kiki老婆，保存文件吧！"
